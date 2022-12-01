@@ -3,7 +3,7 @@ import GiftContext from '../../contexts/GiftContext'
 import Gift from '../Gift'
 
 const GiftContainer = () => {
-    const {gifts} = useContext(GiftContext);
+    const {gifts, deleteAll} = useContext(GiftContext);
     
   return (
     <>
@@ -19,7 +19,7 @@ const GiftContainer = () => {
                     }
                 </ul>
         </div>
-        <button className='px-1 py-1 bg-red-600 rounded text-white'>Borrar todo!</button>
+        <button className='px-1 py-1 bg-red-600 rounded text-white' onClick={deleteAll}>Borrar todo!</button>
             </>
         ) : (
             <h1>No hay regalos!</h1>

@@ -15,6 +15,7 @@ const Form = () => {
     setInput("");
   }
 
+  
   return (
     <>
       <form className='flex justify-center items-center gap-2'>

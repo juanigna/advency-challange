@@ -22,8 +22,16 @@ const GiftContextProvider = ({children}) => {
         }
     }
 
+    const deleteGift = (id) => {
+        const newArray = gifts.filter(gif => gif.id !== id);
+        setGifts(newArray);
+    }
+
+    const deleteAll = () => {
+        setGifts([]);
+    }
     return(
-        <GiftContext.Provider value={{gifts, addGift, setQuantity, quantity}} >
+        <GiftContext.Provider value={{gifts, addGift, setQuantity, quantity, deleteGift, deleteAll}} >
             {children}
         </GiftContext.Provider>  
     )
