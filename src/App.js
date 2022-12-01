@@ -13,7 +13,6 @@ function App() {
         <h1 className='text-5xl'>Regalos!</h1>
         <Form/>
         <GiftContainer gifts={gifts}/>
-        
       </div>
     </div>
   );
