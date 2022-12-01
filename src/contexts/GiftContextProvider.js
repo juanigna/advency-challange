@@ -1,10 +1,16 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import GiftContext from "./GiftContext"
 import { v4 as uuidv4 } from 'uuid';
 
 const GiftContextProvider = ({children}) => {
-    const [gifts, setGifts] = useState([])
+    const initialGifts = JSON.parse(window.localStorage.getItem("gifts")) || [];
+    const [gifts, setGifts] = useState(initialGifts)
     const [quantity, setQuantity] = useState(1);
+
+    useEffect(() => {
+        window.localStorage.setItem("gifts", JSON.stringify(gifts))
+    },[gifts])
+
     const addGift = (newGift, quantity) => {
         if(newGift){
             if(gifts.length > 0){
@@ -12,7 +18,7 @@ const GiftContextProvider = ({children}) => {
                 if(sameName){
                     alert("Ya agregaste esté regalo!")
                 }else{
-                    setGifts([...gifts, {name: newGift, id:uuidv4(), quantity:quantity}]);
+                    setGifts([...gifts, {name: newGift, id:uuidv4(), quantity:quantity}]);   
                 }
             }else{
                 setGifts([...gifts, {name: newGift, id:uuidv4(), quantity:quantity}]);
@@ -28,7 +34,7 @@ const GiftContextProvider = ({children}) => {
     }
 
     const deleteAll = () => {
-        setGifts([]);
+        setGifts([]);   
     }
     return(
         <GiftContext.Provider value={{gifts, addGift, setQuantity, quantity, deleteGift, deleteAll}} >
