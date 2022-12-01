@@ -4,18 +4,18 @@ import { v4 as uuidv4 } from 'uuid';
 
 const GiftContextProvider = ({children}) => {
     const [gifts, setGifts] = useState([])
-
-    const addGift = (newGift) => {
+    const [quantity, setQuantity] = useState(1);
+    const addGift = (newGift, quantity) => {
         if(newGift){
             if(gifts.length > 0){
                 const sameName = gifts.find(gift => gift.name.toLowerCase() === newGift.toLowerCase())
                 if(sameName){
                     alert("Ya agregaste esté regalo!")
                 }else{
-                    setGifts([...gifts, {name: newGift, id:uuidv4()}]);
+                    setGifts([...gifts, {name: newGift, id:uuidv4(), quantity:quantity}]);
                 }
             }else{
-                setGifts([...gifts, {name: newGift, id:uuidv4()}]);
+                setGifts([...gifts, {name: newGift, id:uuidv4(), quantity:quantity}]);
             }
         }else{
             console.log("You should pass a gift to send!")
@@ -23,7 +23,7 @@ const GiftContextProvider = ({children}) => {
     }
 
     return(
-        <GiftContext.Provider value={{gifts, addGift}} >
+        <GiftContext.Provider value={{gifts, addGift, setQuantity, quantity}} >
             {children}
         </GiftContext.Provider>  
     )
