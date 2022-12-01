@@ -11,17 +11,17 @@ const GiftContextProvider = ({children}) => {
         window.localStorage.setItem("gifts", JSON.stringify(gifts))
     },[gifts])
 
-    const addGift = (newGift, quantity) => {
+    const addGift = (newGift, quantity, img) => {
         if(newGift){
             if(gifts.length > 0){
                 const sameName = gifts.find(gift => gift.name.toLowerCase() === newGift.toLowerCase())
                 if(sameName){
                     alert("Ya agregaste esté regalo!")
                 }else{
-                    setGifts([...gifts, {name: newGift, id:uuidv4(), quantity:quantity}]);   
+                    setGifts([...gifts, {name: newGift, id:uuidv4(), quantity:quantity, img:img}]);   
                 }
             }else{
-                setGifts([...gifts, {name: newGift, id:uuidv4(), quantity:quantity}]);
+                setGifts([...gifts, {name: newGift, id:uuidv4(), quantity:quantity,img:img}]);
             }
         }else{
             console.log("You should pass a gift to send!")

@@ -23,9 +23,14 @@ code {
     border-radius: theme('borderRadius.lg');
     padding: theme('spacing.6');
     box-shadow: theme('boxShadow.xl');
-    max-width: 575px;
+    max-width: 645px;
     margin: 0 auto;
     text-align: center;
   }
+
+  .profile-img{
+    max-width: 32px;
+  }
+
   /* ... */
 }

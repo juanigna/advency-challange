@@ -10,7 +10,7 @@ const GiftContainer = () => {
     {
         gifts.length > 0 ? (
             <>
-            <div className='flex flex-col	justify-center items-center'>
+            <div className='flex flex-col justify-center items-center'>
                 <ul className='w-full'>
                     {
                         gifts.map(gif => (

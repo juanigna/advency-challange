@@ -7,7 +7,8 @@ const Gift = ({gift}) => {
 
   return (
     <div className='flex justify-between mb-1'>
-        <li>{gift.name} x{gift.quantity}</li>
+        <img src={gift.img} alt="img" className='profile-img' />
+        <li className='bg-red-400 text-center p-1 rounded text-white'>{gift.name} x {gift.quantity}</li>
         <button className='px-1 bg-red-600 rounded text-white' onClick={() => deleteGift(gift.id)}> X </button>
     </div>
   )

@@ -10,7 +10,7 @@ function App() {
   return (
     <GiftContextProvider>
       <div className="min-h-screen place-content-center	grid ">
-        <div className='card flex flex-col gap-6 p-8 w-full	'>
+        <div className='card flex flex-col gap-6  w-full	p-3'>
           <h1 className='text-5xl'>Regalos!</h1>
           <Form/>
           <GiftContainer/>
