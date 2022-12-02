@@ -6,6 +6,8 @@ const GiftContextProvider = ({children}) => {
     const initialGifts = JSON.parse(window.localStorage.getItem("gifts")) || [];
     const [gifts, setGifts] = useState(initialGifts)
     const [quantity, setQuantity] = useState(1);
+    const [toggle, setToggle] = useState(false);
+
 
     useEffect(() => {
         window.localStorage.setItem("gifts", JSON.stringify(gifts))
@@ -36,8 +38,12 @@ const GiftContextProvider = ({children}) => {
     const deleteAll = () => {
         setGifts([]);   
     }
+
+    const handleToggle = () => {
+        setToggle((lastValue) => !lastValue);
+    }
     return(
-        <GiftContext.Provider value={{gifts, addGift, setQuantity, quantity, deleteGift, deleteAll}} >
+        <GiftContext.Provider value={{gifts, addGift, setQuantity, quantity, deleteGift, deleteAll, handleToggle, toggle}} >
             {children}
         </GiftContext.Provider>  
     )

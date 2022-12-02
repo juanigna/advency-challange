@@ -23,7 +23,7 @@ code {
     border-radius: theme('borderRadius.lg');
     padding: theme('spacing.6');
     box-shadow: theme('boxShadow.xl');
-    max-width: 645px;
+    max-width: 675px;
     margin: 0 auto;
     text-align: center;
   }
@@ -31,6 +31,22 @@ code {
   .profile-img{
     max-width: 32px;
   }
+
+  .form-pop{
+    width: 600px;
+    height: 350px;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em 1em;
+}
 
   /* ... */
 }
